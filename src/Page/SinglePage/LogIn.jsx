@@ -3,10 +3,11 @@ import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
-// import { AuthContext } from '../../Provider/AuthProvider';
+import { AuthContext } from '../../Provider/AuthProvider';
+
 
 const LogIn = () => {
-    // const {handleGoogleSinInAuth, setUser,userLoginAuth} = useContext(AuthContext)
+    const {handleGoogleSinInAuth, setUser,} = useContext(AuthContext)
     const [show, setShow] = useState(false)
     const [error, setError] = useState({})
     
@@ -16,11 +17,11 @@ const LogIn = () => {
 
 //    google Login method 
     const handleGooleSingIn = () =>{
-        // handleGoogleSinInAuth()
-        // .then(res => {
-        //     const  user = res.user;
-        //     setUser(user)
-        // })
+        handleGoogleSinInAuth()
+        .then(res => {
+            const  user = res.user;
+            setUser(user)
+        })
 
     }
     return (

@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../Provider/AuthProvider';
 
 
 
 const Header = () => {
-    // const { user, logOut } = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
+    // console.log(user)
+   
 
     const [mode, setMode] = useState("light");
     // Apply theme to the document
@@ -40,8 +43,8 @@ const Header = () => {
 
                      <div className="flex items-center
                      ">
-                     <img src="https://i.ibb.co.com/rv1zsFf/images.jpg" alt="" className="lg:w-18 w-8 rounded-lg" />
-                     <h2 className='font-bold text-lg'> Find<span className='text-orange-500'>It</span>Zone</h2>
+                     <img src="https://i.ibb.co.com/rv1zsFf/images.jpg" alt="" className="lg:w-22 w-8 rounded-lg" />
+                     <h2 className='font-bold text-xl'> Find<span className='text-orange-500'>It</span>Zone</h2>
                      </div>
 
                         <div className="dropdown">
@@ -129,13 +132,15 @@ const Header = () => {
                         </label>
 
 
-                        <div className="dropdown dropdown-end">
+                       {
+                        user?(
+                            <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                 <div className="w-10 rounded-full">
                                     <img
-                                        title="Mizan"
+                                        title={user?.displayName}
                                         alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        src={user?.photoURL } />
                                 </div>
 
                             </div>
@@ -152,9 +157,27 @@ const Header = () => {
 
                             </ul>
                         </div>
+                        ):
+                        (
+                            <div className="w-10 rounded-full">
+                                    <img
+                                        title="Mizan"
+                                        alt="Tailwind CSS Navbar component"
+                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                </div>
+                        )
+                       }
 
                         <div className="">
-                            <Link to={'/logIn'} className='btn btn-outline ml-2'>LogIn</Link>
+                            {
+                                user?
+                                 <button className='btn btn-outline ml-2'>LogOut</button>
+                                 :
+                                 <Link to={'/logIn'} className='btn btn-outline ml-2'>LogIn</Link>
+                            }
+                            
+                           
+                            
                         </div>
 
 

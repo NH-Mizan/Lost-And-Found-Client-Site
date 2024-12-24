@@ -9,7 +9,7 @@ const UserTestimonials = () => {
                     <div className="text-center py-12 ">
                       
                         <h2 className='font-bold text-3xl mb-4 '>User Testmonials </h2>
-                        <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit deleniti ipsam, delectus maxime fuga. Eius totam atque hic quasi </p>
+                        <p >Our users are at the heart of what we do. Discover their success stories and see how this platform has made a difference in their lives.</p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4">
                         <div class="p-4 bg-white rounded-xl shadow-md">

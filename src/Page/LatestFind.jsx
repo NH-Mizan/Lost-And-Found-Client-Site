@@ -5,7 +5,7 @@ const LatestFind = () => {
         <div >
             <div className="text-center py-12">
                 <h2 className='font-bold text-3xl mb-4 '>Latest Find & Lost Items </h2>
-                <p >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis impedit deleniti ipsam, delectus maxime fuga. Eius totam atque hic quasi </p>
+                <p >Explore the latest posts of items that need to be reunited with their owners. Your help could bring joy to someone today.</p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
                 <div className="card bg-base-100 shadow-xl">

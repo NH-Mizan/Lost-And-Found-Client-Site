@@ -154,7 +154,7 @@ const Header = () => {
                         </div>
 
                         <div className="">
-                            <button className='btn btn-outline ml-2'>LogOut</button>
+                            <Link to={'/logIn'} className='btn btn-outline ml-2'>LogIn</Link>
                         </div>
 
 

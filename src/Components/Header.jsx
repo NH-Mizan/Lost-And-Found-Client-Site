@@ -38,7 +38,11 @@ const Header = () => {
                 <div className="navbar w-11/12 mx-auto itrms-center flex ">
                     <div className="navbar-start">
 
-                        <img src="https://i.ibb.co.com/KjVMCTq/file.png" alt="" className="lg:w-48 w-14 rounded-lg" />
+                     <div className="flex items-center
+                     ">
+                     <img src="https://i.ibb.co.com/rv1zsFf/images.jpg" alt="" className="lg:w-18 w-8 rounded-lg" />
+                     <h2 className='font-bold text-lg'> Find<span className='text-orange-500'>It</span>Zone</h2>
+                     </div>
 
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -143,7 +147,7 @@ const Header = () => {
 
                                 <li><NavLink to={'/addItems'}>Add Lost & Found </NavLink></li>
                                 <li><NavLink to={'/allRecovered '}>All Recovered Item </NavLink></li>
-                                <li><NavLink to={'/myItems'}>Manage My Items</NavLink></li>
+                                <li><NavLink to={'/manageItems'}>Manage My Items</NavLink></li>
 
 
                             </ul>

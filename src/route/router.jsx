@@ -6,6 +6,9 @@ import ErrorPage from "../Page/ErrorPage";
 import MainLayout from "../Layout/MainLayout";
 import PostDetails from "../Components/PostDetails";
 import LostAndFound from "../Page/LostAndFound";
+import AddLostAndFound from "../Page/AddLostAndFound";
+import AllRecovered from "../Page/AllRecovered";
+import ManageItems from "../Page/ManageItems";
 
 
 
@@ -33,6 +36,18 @@ const router = createBrowserRouter([
             {
                 path: '/lost&found',
                 element: <LostAndFound />
+            },
+            {
+                path: '/addItems',
+                element: <AddLostAndFound />
+            },
+            {
+                path: '/allRecovered ',
+                element: <AllRecovered />
+            },
+            {
+                path: '/manageItems',
+                element: <ManageItems />
             },
           
         ]

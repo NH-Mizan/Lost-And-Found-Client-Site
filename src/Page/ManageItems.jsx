@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LostAndFound = () => {
+const ManageItems = () => {
     return (
         <div className='min-h-screen'>
             
@@ -8,4 +8,4 @@ const LostAndFound = () => {
     );
 };
 
-export default LostAndFound;
+export default ManageItems;

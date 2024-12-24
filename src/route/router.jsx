@@ -9,6 +9,7 @@ import LostAndFound from "../Page/LostAndFound";
 import AddLostAndFound from "../Page/AddLostAndFound";
 import AllRecovered from "../Page/AllRecovered";
 import ManageItems from "../Page/ManageItems";
+import LatestFind from "../Page/LatestFind";
 
 
 
@@ -19,7 +20,13 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home/>
+                element: <Home/>,
+                children:[
+                    {
+                        path:'/',
+                        element:<LatestFind/>
+                    }
+                ]
             },
             {
                 path: '/login',

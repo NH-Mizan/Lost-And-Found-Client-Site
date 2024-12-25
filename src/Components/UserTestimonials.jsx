@@ -8,13 +8,13 @@ const UserTestimonials = () => {
 
                     <div className="text-center py-12 ">
                       
-                        <h2 className='font-bold text-3xl mb-4 '>User Testmonials </h2>
+                        <h2 className='font-bold text-3xl mb-4 '> Testmonials </h2>
                         <p >Our users are at the heart of what we do. Discover their success stories and see how this platform has made a difference in their lives.</p>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-4">
                         <div class="p-4 bg-white rounded-xl shadow-md">
                             <div className="items-center justify-center flex ">
-                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="" className='w-44 h-44 rounded-full mb-4 ' />
+                            <img src="https://i.ibb.co.com/wdLxPzt/avatar-5-150x150.png" alt="" className='w-44 h-44 rounded-full mb-4 ' />
                             </div>
                             <p>"I found my lost phone easily using this platform! It’s amazing!"</p>
                             <h4 class="font-bold mt-2">Arif Mohammed</h4>
@@ -22,7 +22,7 @@ const UserTestimonials = () => {
                         </div>
                         <div class="p-4 bg-white rounded-xl shadow-md">
                         <div className="items-center justify-center flex ">
-                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="" className='w-44 h-44 rounded-full mb-4 ' />
+                            <img src="https://i.ibb.co.com/ySgdCq0/avatar-4-150x150.png" alt="" className='w-44 h-44 rounded-full mb-4 ' />
                             </div>
                             <p>"Thanks to this website, I found my lost pet effortlessly!"</p>
                             <h4 class="font-bold mt-2">Sabrina Alam</h4>
@@ -30,7 +30,7 @@ const UserTestimonials = () => {
                         </div>
                         <div class="p-4 bg-white  rounded-xl shadow-md">
                         <div className="items-center justify-center flex ">
-                            <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="" className='w-44 h-44 rounded-full mb-4 ' />
+                            <img src="https://i.ibb.co.com/LvFt2Q0/avatar-1-150x150.png" alt="" className='w-44 h-44 rounded-full mb-4 ' />
                             </div>
                             <p>"This platform was a lifesaver. Truly brilliant service."</p>
                             <h4 class="font-bold mt-2">Jayanta Kar</h4>

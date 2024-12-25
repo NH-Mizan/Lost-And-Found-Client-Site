@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import { FaRegUserCircle } from "react-icons/fa";
 
 
 
 const Header = () => {
-    const {user} = useContext(AuthContext)
+    const {user,  logOut } = useContext(AuthContext)
     // console.log(user)
    
 
@@ -159,11 +160,8 @@ const Header = () => {
                         </div>
                         ):
                         (
-                            <div className="w-10 rounded-full">
-                                    <img
-                                        title="Mizan"
-                                        alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                            <div  className=" rounded-full">
+                                   <FaRegUserCircle className='text-3xl'/>
                                 </div>
                         )
                        }
@@ -171,7 +169,7 @@ const Header = () => {
                         <div className="">
                             {
                                 user?
-                                 <button className='btn btn-outline ml-2'>LogOut</button>
+                                 <button onClick={logOut} className='btn btn-outline ml-2'>LogOut</button>
                                  :
                                  <Link to={'/logIn'} className='btn btn-outline ml-2'>LogIn</Link>
                             }

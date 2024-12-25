@@ -3,49 +3,79 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const Register = () => {
     const [show, setShow] = useState(false)
     const [error, setError] = useState()
     const navigate = useNavigate()
-    useEffect(()=>{
+    const { handleGoogleSinInAuth, setUser, createUserAuth, updateUserDashboard } = useContext(AuthContext)
+    useEffect(() => {
         document.title = "Register || Lost and Found"
-    },[])
-      // handle register Form method===========
-      const handleRegisterForm = (event) => {
+    }, [])
+    // handle register Form method===========
+    const handleRegisterForm = (event) => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photo = form.photo.value;
-      }
-    
 
-        // handle Google button method ============
+
+
+        createUserAuth(email, password)
+            .then(res => {
+
+                const user = res.user;
+                // setUser(user)
+                updateUserDashboard({ displayName: name, photoURL: photo })
+
+                    .then(() => {
+                        setUser((prev) => {
+                            return { ...prev, displayName: name, photoURL: photo }
+                           
+                        })
+                        navigate('/')
+
+                    })
+                    .catch((error) => {
+                        const errorCode = error.code;
+                        const errorMessage = error.message;
+                    });
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+
+    }
+
+
+    // handle Google button method ============
 
     const handleGooleSingIn = () => {
-        // handleGoogleSinInAuth()
-        //     .then(res => {
-        //         const user = res.user;
-        //         setUser(user)
-                
-        //     })
-        //     navigate("/")
+        handleGoogleSinInAuth()
+            .then(res => {
+                const user = res.user;
+                setUser(user)
+
+                navigate("/")
+            })
     }
 
     return (
         <div className=' mx-auto w-11/12 '>
-        <div
-            className="hero py-12"
-            style={{
-                backgroundImage: "url(https://i.ibb.co.com/dBQJyTR/banner3.jpg)",
-            }}>
+            <div
+                className="hero py-12"
+                style={{
+                    backgroundImage: "url(https://i.ibb.co.com/dBQJyTR/banner3.jpg)",
+                }}>
 
 
-            
-            <div className="card bg-base-100 w-full max-w-lg py-12 shrink-0 shadow-2xl">
+
+                <div className="card bg-base-100 w-full max-w-lg py-12 shrink-0 shadow-2xl">
                     <h2 className="text-3xl font-bold text-center ">Join Our Mission !!</h2>
 
                     <form onSubmit={handleRegisterForm} className="card-body">

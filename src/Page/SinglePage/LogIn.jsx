@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
@@ -7,12 +7,29 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 
 const LogIn = () => {
-    const {handleGoogleSinInAuth, setUser,} = useContext(AuthContext)
+    const {handleGoogleSinInAuth, setUser,userLoginAuth} = useContext(AuthContext)
     const [show, setShow] = useState(false)
     const [error, setError] = useState({})
+    const navigate = useNavigate()
     
     // form handle method
     const handleLoginForm = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+      
+
+       
+        userLoginAuth(email, password)
+        .then(res =>{
+            const user = res.user;
+            setUser(user)
+            navigate(location?.state ? location.state : "/")
+        })   .catch((erro) => {
+            setError({...error, login: erro.code })
+        });
+
     }
 
 //    google Login method 

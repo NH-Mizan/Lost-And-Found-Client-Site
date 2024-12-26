@@ -39,7 +39,7 @@ const AddLostAndFound = () => {
             await axios.post(`${import.meta.env.VITE_apiURL}/items`, addSubmitValue)
             Swal.fire({
                 title: 'Success!',
-                text: ' New Campaign Added Sucessfully',
+                text: ' New Lost&Found Item Added Sucessfully',
                 icon: 'success',
                 confirmButtonText: 'Back'
             })

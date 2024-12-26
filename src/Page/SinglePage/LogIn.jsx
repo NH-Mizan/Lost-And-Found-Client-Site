@@ -72,7 +72,7 @@ const LogIn = () => {
 
 
                     <div className="hero-content  p-12 rounded-xl flex flex-col lg:flex-row md:flex-row gap-12 bg-lime-100 text-center">
-                        <div className=""><img src='https://i.ibb.co.com/dBQJyTR/banner3.jpg' alt="" className="rounded-lg h-80 w-80" /></div>
+                        <div className=""><img src='https://i.ibb.co.com/nQ0XZNM/images-1.jpg' alt="" className="rounded-lg h-80 w-80" /></div>
                         <div className="max-w-md text-left">
                         {/* login section */}
 

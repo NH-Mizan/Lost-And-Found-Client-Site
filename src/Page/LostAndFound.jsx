@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 const LostAndFound = () => {
@@ -36,11 +36,13 @@ const LostAndFound = () => {
                     {/* Card Display aLL map kore */}
                     {
                         items?.map((item) => (
-                            <div className="card bg-base-100 shadow-xl">
+                            <div key={item._id} className="card bg-base-100 shadow-xl">
                                 <figure>
                                     <img
                                         src={item.thumbnail}
-                                        alt="Shoes" />
+                                        alt="Shoes"
+                                        className="h-56 w-full" />
+                                        
                                 </figure>
                                 <div className="card-body">
                                     <div className="flex justify-between items-center">
@@ -54,7 +56,7 @@ const LostAndFound = () => {
                                         <div><p>{item.location}</p></div>
                                     </div>
                                     <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">View Details</button>
+                                        <Link to={`/details/${item._id}`} className="btn btn-primary">View Details</Link>
                                     </div>
                                 </div>
                             </div>

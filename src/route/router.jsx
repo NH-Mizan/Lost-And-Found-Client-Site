@@ -16,15 +16,15 @@ import LatestFind from "../Page/LatestFind";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <MainLayout/>,
+        element: <MainLayout />,
         children: [
             {
                 path: '/',
-                element: <Home/>,
-                children:[
+                element: <Home />,
+                children: [
                     {
-                        path:'/',
-                        element:<LatestFind/>
+                        path: '/',
+                        element: <LatestFind />
                     }
                 ]
             },
@@ -38,12 +38,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <PostDetails />
+                element: <PostDetails />,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_apiURL}/details/${params.id}`)
+
+
             },
             {
                 path: '/lost&found',
                 element: <LostAndFound />,
-                loader:()=> fetch(`${import.meta.env.VITE_apiURL}/items`)
+                loader: () => fetch(`${import.meta.env.VITE_apiURL}/items`)
             },
             {
                 path: '/addItems',
@@ -57,12 +60,12 @@ const router = createBrowserRouter([
                 path: '/manageItems',
                 element: <ManageItems />
             },
-          
+
         ]
     },
     {
         path: '*',
-        element: <ErrorPage/>
+        element: <ErrorPage />
     },
 ]);
 

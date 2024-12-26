@@ -1,6 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+
 
 const LostAndFound = () => {
+
+    const items = useLoaderData()
+    console.log(items)
+
+    
+
     return (
         <div className='min-h-screen bg-base-200'>
             <div className='w-11/12 mx-auto '>
@@ -24,95 +32,36 @@ const LostAndFound = () => {
                     </label>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-                    <div className="card bg-base-100 shadow-xl">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">View Details</button>
+
+                    {/* Card Display aLL map kore */}
+                    {
+                        items?.map((item) => (
+                            <div className="card bg-base-100 shadow-xl">
+                                <figure>
+                                    <img
+                                        src={item.thumbnail}
+                                        alt="Shoes" />
+                                </figure>
+                                <div className="card-body">
+                                    <div className="flex justify-between items-center">
+                                        <h2 className="card-title">{item.title}</h2>
+                                        <div><p>{item.date}</p></div>
+                                    </div>
+                                    <p>{item.description.substring(0, 40)}...</p>
+
+                                    <div className="flex justify-between items-center mb-4">
+                                        <h2 className="card-title">{item.postType}</h2>
+                                        <div><p>{item.location}</p></div>
+                                    </div>
+                                    <div className="card-actions justify-end">
+                                        <button className="btn btn-primary">View Details</button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        ))
+                    }
                     {/* ======================= */}
-                    <div className="card bg-base-100  shadow-xl">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/* ======================= */}
-                    <div className="card bg-base-100  shadow-xl">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/* ======================= */}
-                    <div className="card bg-base-100  shadow-xl">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/* ======================= */}
-                    <div className="card bg-base-100 shadow-xl">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
-                    {/* ======================= */}
-                    <div className="card bg-base-100  shadow-xl">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Shoes!</h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
-                            </div>
-                        </div>
-                    </div>
+
                     {/* ======================= */}
 
                 </div>

@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
+import { AuthContext } from '../Provider/AuthProvider';
+import Swal from 'sweetalert2';
+import axios from 'axios';
 
 const AddLostAndFound = () => {
-    const [formData, setFormData] = useState({
-
-        date: new Date(),
-
-    });
+    const { user } = useContext(AuthContext)
+    const [formData, setFormData] = useState({ date: new Date() })
 
 
     const handleDateChange = (date) => {
@@ -17,8 +17,9 @@ const AddLostAndFound = () => {
 
 
     //    Add Data Lost and Found
-    const handleSubmit = e => {
-        e.preventDefalt();
+    
+    const handleSubmit = async e => {
+        e.preventDefault();
         const data = e.target;
         const postType = data.postType.value;
         const thumbnail = data.thumbnail.value;
@@ -30,9 +31,36 @@ const AddLostAndFound = () => {
         const contactName = data.contactName.value;
         const contactEmail = data.contactEmail.value;
 
-        const addSubmitvalue = { postType, thumbnail, title, description, category, location, date, contactName, contactEmail }
+        const addSubmitValue = { postType, thumbnail, title, description, category, location, date, contactName, contactEmail }
+        console.log(addSubmitValue)
+        // send add Capmaign value to the server
+        
+        try {
+            await axios.post(`${import.meta.env.VITE_apiURL}/items`, addSubmitValue)
+            Swal.fire({
+                title: 'Success!',
+                text: ' New Campaign Added Sucessfully',
+                icon: 'success',
+                confirmButtonText: 'Back'
+            })
+        } catch(error){
+            Swal.fire({
+                title: 'Oops.....!',
+                text: `Somthing went wrong ! ${error.message}`,
+                icon: 'error',
+                confirmButtonText: 'Back'
+            })
+        }
 
+
+    
     }
+
+
+
+
+
+
     return (
         <div className='bg-base-200 py-12'>
             <form onSubmit={handleSubmit} className="max-w-2xl mx-auto p-4 border rounded-md shadow-md bg-base-100">
@@ -56,12 +84,12 @@ const AddLostAndFound = () => {
                 <div className="mb-4">
                     <label htmlFor="thumbnail" className="block mb-2 font-medium">Thumbnail (Image Upload)</label>
                     <input
-                        type="file"
+                        type="text"
                         id="thumbnail"
                         name="thumbnail"
                         accept="image/*"
 
-                        className="w-full"
+                        className="w-full p-2 border rounded-md"
                     />
                 </div>
 
@@ -142,7 +170,7 @@ const AddLostAndFound = () => {
                         type="text"
                         id="contactName"
                         name="contactName"
-
+                        defaultValue={user?.displayName}
                         readOnly
                         className="w-full p-2 border bg-gray-100 rounded-md"
                     />
@@ -154,7 +182,7 @@ const AddLostAndFound = () => {
                         type="email"
                         id="contactEmail"
                         name="contactEmail"
-
+                        defaultValue={user?.email}
                         readOnly
                         className="w-full p-2 border bg-gray-100 rounded-md"
                     />

@@ -4,10 +4,11 @@ import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const LogIn = () => {
-    const {handleGoogleSinInAuth, setUser,userLoginAuth} = useContext(AuthContext)
+    const {handleGoogleSinInAuth, setUser,userLoginAuth, setLoder} = useContext(AuthContext)
     const [show, setShow] = useState(false)
     const [error, setError] = useState({})
     const navigate = useNavigate()
@@ -25,7 +26,17 @@ const LogIn = () => {
         .then(res =>{
             const user = res.user;
             setUser(user)
+
             navigate(location?.state ? location.state : "/")
+            setLoder(false)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              
         })   .catch((erro) => {
             setError({...error, login: erro.code })
         });
@@ -38,6 +49,15 @@ const LogIn = () => {
         .then(res => {
             const  user = res.user;
             setUser(user)
+            setLoder(false)
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Your work has been saved",
+                showConfirmButton: false,
+                timer: 1500
+              });
+              
         })
 
     }

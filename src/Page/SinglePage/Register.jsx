@@ -4,13 +4,14 @@ import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const Register = () => {
     const [show, setShow] = useState(false)
     const [error, setError] = useState()
     const navigate = useNavigate()
-    const { handleGoogleSinInAuth, setUser, createUserAuth, updateUserDashboard } = useContext(AuthContext)
+    const { handleGoogleSinInAuth, setUser, createUserAuth, updateUserDashboard, setLoder} = useContext(AuthContext)
     useEffect(() => {
         document.title = "Register || Lost and Found"
     }, [])
@@ -35,9 +36,18 @@ const Register = () => {
                     .then(() => {
                         setUser((prev) => {
                             return { ...prev, displayName: name, photoURL: photo }
-                           
+                            
                         })
+                        setLoder(false)
                         navigate('/')
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Your work has been saved",
+                            showConfirmButton: false,
+                            timer: 1500
+                          });
+                          
 
                     })
                     .catch((error) => {
@@ -62,6 +72,15 @@ const Register = () => {
                 setUser(user)
 
                 navigate("/")
+                setLoder(false)
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your work has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  
             })
     }
 

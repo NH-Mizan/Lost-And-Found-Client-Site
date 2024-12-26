@@ -7,12 +7,14 @@ const auth = getAuth(app)
 
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null)
+    const [loder, setLoder] = useState(true)
     console.log(user)
 
 
     // Google signIn Method =====================================
     const provider = new GoogleAuthProvider();
     const handleGoogleSinInAuth = () => {
+        setLoder(true)
 
         signInWithPopup(auth, provider)
             .then(res => {
@@ -23,13 +25,13 @@ const AuthProvider = ({ children }) => {
 
      // Create user method=======================================
      const createUserAuth = (email, password) => {
-        // setLodar(true);
+        setLoder(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
         
     const updateUserDashboard = (updateData) => {
 
-
+        setLoder(true);
         return updateProfile(auth.currentUser, updateData)
 
 
@@ -42,13 +44,13 @@ const AuthProvider = ({ children }) => {
     // LogIn With Email and Password Method=====================
 
     const userLoginAuth = (email, password) => {
-
+        setLoder(true);
      return signInWithEmailAndPassword(auth, email, password)
     }
 
      // Log Out user Method========== 
      const logOut = () => {
-
+        setLoder(true);
         return signOut(auth)
     }
 
@@ -58,7 +60,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser)
-            // setLodar(false);
+            setLoder(false);
 
         })
         return () => {
@@ -74,7 +76,9 @@ const AuthProvider = ({ children }) => {
         userLoginAuth,
         logOut,
         createUserAuth,
-        updateUserDashboard
+        updateUserDashboard,
+        setLoder,
+        loder
 
 
     }

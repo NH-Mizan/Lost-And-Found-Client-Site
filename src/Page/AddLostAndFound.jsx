@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import DatePicker from 'react-datepicker';
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -9,6 +9,9 @@ import axios from 'axios';
 const AddLostAndFound = () => {
     const { user } = useContext(AuthContext)
     const [formData, setFormData] = useState({ date: new Date() })
+    useEffect(() => {
+        document.title = "Add Find Data || Find It Zone"
+    }, [])
 
 
     const handleDateChange = (date) => {

@@ -13,7 +13,7 @@ const Register = () => {
     const navigate = useNavigate()
     const { handleGoogleSinInAuth, setUser, createUserAuth, updateUserDashboard, setLoder} = useContext(AuthContext)
     useEffect(() => {
-        document.title = "Register || Lost and Found"
+        document.title = "Register || Find It Zone"
     }, [])
     // handle register Form method===========
     const handleRegisterForm = (event) => {

@@ -6,6 +6,9 @@ const LostAndFound = () => {
 
     const items = useLoaderData()
     console.log(items)
+    useEffect(() => {
+        document.title = "Lost and Found || Find It Zone"
+    }, [])
 
     
 

@@ -14,13 +14,15 @@ const Update = () => {
     const [formData, setFormData] = useState({ date: new Date() })
     console.log(data)
 
-    const updateData = async ()=>{
-        const  {data} = await axios.get(`${import.meta.env.VITE_apiURL}/update/${id}`);
-        setData(data)
-        
-    }
+  
     useEffect(() =>{
+        const updateData = async ()=>{
+            const  {data} = await axios.get(`${import.meta.env.VITE_apiURL}/update/${id}`);
+            setData(data)
+            
+        }
         updateData()
+        document.title = 'Update Page || Find It Zone'
     },[id])
 
     const handleUpdateSubmit = async e =>{

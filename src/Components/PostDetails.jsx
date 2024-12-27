@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
@@ -15,6 +15,9 @@ const PostDetails = () => {
     const { user } = useContext(AuthContext)
     const { postType, thumbnail, title, description, category, location, date, contactName, contactEmail } = detailData
     console.log(detailData)
+    useEffect(() => {
+        document.title = "Details Page || Find It Zone"
+    }, [])
 
     const handleRecoverClick = (detailData) => {
         document.getElementById('my_modal_1').showModal()

@@ -7,14 +7,16 @@ import Swal from 'sweetalert2';
 const ManageItems = () => {
     const [posts, setPosts] = useState([])
     const { user } = useContext(AuthContext);
-    const myItem = async () => {
-        const { data } = await axios.get(
-            `${import.meta.env.VITE_apiURL}/post/${user?.email}`
-        );
-        setPosts(data)
-    }
+   
     useEffect(() => {
+        const myItem = async () => {
+            const { data } = await axios.get(
+                `${import.meta.env.VITE_apiURL}/post/${user?.email}`
+            );
+            setPosts(data)
+        }
         myItem()
+          document.title = 'Manage Page || Find It Zone'
 
     }, [user]);
 
@@ -57,18 +59,22 @@ const ManageItems = () => {
                     <table className="table-auto border-collapse border border-gray-300 w-full">
                         <thead>
                             <tr className="bg-gray-200">
+                                <th className="border border-gray-300 p-2">Photo</th>
                                 <th className="border border-gray-300 p-2">Title</th>
                                 <th className="border border-gray-300 p-2">Category</th>
                                 <th className="border border-gray-300 p-2">Location</th>
+                                <th className="border border-gray-300 p-2">Date</th>
                                 <th className="border border-gray-300 p-2">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {posts.map((post) => (
                                 <tr key={post._id} className="text-center">
+                                    <td className="border border-gray-300 p-2"><img src={post.thumbnail} className='w-14 h-14 rounded-full' alt="" /></td>
                                     <td className="border border-gray-300 p-2">{post.title}</td>
                                     <td className="border border-gray-300 p-2">{post.category}</td>
                                     <td className="border border-gray-300 p-2">{post.location}</td>
+                                    <td className="border border-gray-300 p-2">{post.date}</td>
                                     <td className="border border-gray-300 p-2 flex justify-around">
                                         <Link
                                             to={`/update/${post._id}`}

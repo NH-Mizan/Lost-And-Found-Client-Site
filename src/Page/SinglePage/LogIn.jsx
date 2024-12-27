@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { FaEye } from "react-icons/fa6";
@@ -12,6 +12,10 @@ const LogIn = () => {
     const [show, setShow] = useState(false)
     const [error, setError] = useState({})
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        document.title = "LogIn || FindItZone "
+    },[])
     
     // form handle method
     const handleLoginForm = e =>{

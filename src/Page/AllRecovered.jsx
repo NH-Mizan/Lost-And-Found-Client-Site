@@ -23,6 +23,7 @@ const AllRecovered = () => {
     };
 
     fetchRecoveredPosts();
+      document.title = 'All Recovered Page || Find It Zone'
 
     
   }, [user.email]);

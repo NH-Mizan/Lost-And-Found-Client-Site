@@ -10,6 +10,7 @@ import AddLostAndFound from "../Page/AddLostAndFound";
 import AllRecovered from "../Page/AllRecovered";
 import ManageItems from "../Page/ManageItems";
 import LatestFind from "../Page/LatestFind";
+import Update from "../Page/SinglePage/Update";
 
 
 
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register />
+            },
+            {
+                path: '/update/:id',
+                element: <Update />
             },
             {
                 path: '/details/:id',

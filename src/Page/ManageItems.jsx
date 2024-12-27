@@ -19,9 +19,7 @@ const ManageItems = () => {
     }, [user]);
 
 
-    const handleUpdate = e => {
-
-    }
+    
     const handleDelete = id =>{
         Swal.fire({
             title: "Are you sure?",
@@ -72,12 +70,12 @@ const ManageItems = () => {
                                     <td className="border border-gray-300 p-2">{post.category}</td>
                                     <td className="border border-gray-300 p-2">{post.location}</td>
                                     <td className="border border-gray-300 p-2 flex justify-around">
-                                        <button
-                                            onClick={() => handleUpdate(post._id)}
+                                        <Link
+                                            to={`/update/${post._id}`}
                                             className="btn btn-primary"
                                         >
                                             Update
-                                        </button>
+                                        </Link>
                                         <button
                                             onClick={() => handleDelete(post._id)}
                                             className="btn btn-danger"

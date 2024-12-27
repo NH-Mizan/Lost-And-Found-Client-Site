@@ -11,6 +11,7 @@ import AllRecovered from "../Page/AllRecovered";
 import ManageItems from "../Page/ManageItems";
 import LatestFind from "../Page/LatestFind";
 import Update from "../Page/SinglePage/Update";
+import Private from "../Privates/Private";
 
 
 
@@ -43,7 +44,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/details/:id',
-                element: <PostDetails />,
+                element: <Private><PostDetails /></Private> ,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_apiURL}/details/${params.id}`)
 
 
@@ -55,15 +56,15 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addItems',
-                element: <AddLostAndFound />
+                element: <Private><AddLostAndFound /></Private>
             },
             {
                 path: '/allRecovered ',
-                element: <AllRecovered />
+                element: <Private><AllRecovered /></Private>
             },
             {
                 path: '/manageItems',
-                element: <ManageItems />
+                element: <Private><ManageItems /></Private>
             },
 
         ]

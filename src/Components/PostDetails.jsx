@@ -35,9 +35,10 @@ const PostDetails = () => {
         const recoveredEmail = form.email.value;
         const recoveredName = form.name.value;
         const recoveredPhoto = user?.photoURL;
+        const status = "recovered"
 
 
-        const recoveredData = { recoveredLocation, recoveredDate, recoveredEmail, recoveredName, recoveredPhoto }
+        const recoveredData = { recoveredLocation, recoveredDate, recoveredEmail, recoveredName, recoveredPhoto, status }
         console.log(recoveredData)
         document.getElementById("my_modal_1").close();
         try {

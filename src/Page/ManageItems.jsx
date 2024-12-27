@@ -8,13 +8,13 @@ const ManageItems = () => {
     const [posts, setPosts] = useState([])
     const { user } = useContext(AuthContext);
    
+    const myItem = async () => {
+        const { data } = await axios.get(
+            `${import.meta.env.VITE_apiURL}/post/${user?.email}`
+        );
+        setPosts(data)
+    }
     useEffect(() => {
-        const myItem = async () => {
-            const { data } = await axios.get(
-                `${import.meta.env.VITE_apiURL}/post/${user?.email}`
-            );
-            setPosts(data)
-        }
         myItem()
           document.title = 'Manage Page || Find It Zone'
 

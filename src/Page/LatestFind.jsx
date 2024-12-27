@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const LatestFind = () => {
     return (
@@ -100,7 +101,7 @@ const LatestFind = () => {
                 {/* ======================= */}
 
             </div>
-            <button className='btn btn-error mb-12 '>See More</button>
+            <Link  to={'/lost&found'} className='btn btn-error mb-12 '>See More</Link>
 
         </div>
     );

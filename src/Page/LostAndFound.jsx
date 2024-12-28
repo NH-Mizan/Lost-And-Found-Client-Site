@@ -1,17 +1,18 @@
 import axios from 'axios';
-import React, {  useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
 
-const LostAndFound = () => {    const [originalItems, setOriginalItems] = useState([]); 
-    const [postItem, setPostItem] = useState([]); 
-    const [searchQuery, setSearchQuery] = useState(""); 
-   
+const LostAndFound = () => {
+    const [originalItems, setOriginalItems] = useState([]);
+    const [postItem, setPostItem] = useState([]);
+    const [searchQuery, setSearchQuery] = useState("");
+
 
     useEffect(() => {
         document.title = "Lost and Found || Find It Zone";
-        
+
         const fetchItems = async () => {
             try {
                 const { data } = await axios.get(`${import.meta.env.VITE_apiURL}/items`);
@@ -59,7 +60,7 @@ const LostAndFound = () => {    const [originalItems, setOriginalItems] = useSta
                             value={searchQuery}
                             onChange={handleSearch}
                         />
-                          <svg
+                        <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
                             fill="currentColor"
@@ -70,7 +71,7 @@ const LostAndFound = () => {    const [originalItems, setOriginalItems] = useSta
                                 clipRule="evenodd"
                             />
                         </svg>
-                        
+
                     </label>
                 </div>
 
@@ -86,17 +87,17 @@ const LostAndFound = () => {    const [originalItems, setOriginalItems] = useSta
                                     <div className="flex justify-between items-center">
                                         <h2 className="card-title">{item.title}</h2>
                                         <div>
-                                            <p>{new Date(item.date).toLocaleDateString()}</p>
+                                            <h2 className="font-bold border-2 border-orange-500 px-2 rounded-3xl my-4 bg-lime-100">{item.postType}</h2>
+
                                         </div>
                                     </div>
                                     <p>{item.description.substring(0, 40)}...</p>
 
-                                    <div className="flex justify-between items-center mb-4">
-                                        <h2 className="card-title">{item.postType}</h2>
-                                        <div>
-                                            <p>{item.location}</p>
+                                   
+                                        <div className="text-sm flex justify-between">
+                                            <span className="font-bold border-2 p-2 flex rounded-3xl my-4 bg-lime-100"><h2 className="text-orange-500 mr-2"> Deadline </h2> : {item.date}</span>  <span className="font-bold font-bold border-2 p-2 flex rounded-3xl my-4 bg-lime-100"><h2 className="text-orange-500 mr-2"> Location </h2>: {item.location}</span>
                                         </div>
-                                    </div>
+                                 
                                     <div className="card-actions justify-end">
                                         <Link to={`/details/${item._id}`} className="btn btn-primary">
                                             View Details
@@ -108,8 +109,8 @@ const LostAndFound = () => {    const [originalItems, setOriginalItems] = useSta
                     ) : (
                         <div className="text-center col-span-full">
                             <h3 className="text-xl font-semibold">No items match your search query.</h3>
-                         
-                            
+
+
                         </div>
                     )}
                 </div>

@@ -4,25 +4,21 @@ const Banner = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const slides = [
         {
-            title: "IdeaBloom: Cultivating Creativity for a Better World",
-            image: "https://i.ibb.co.com/fD4QyfQ/downloadbuss.jpg",
-            description: "IdeaBloom nurtures bold ideas that can change the world. Join us in empowering dreamers to transform their creative visions into meaningful impact."
+            title: "Every Item Deserves a Home!",
+            image: "https://i.ibb.co.com/DD8Btnf/download-8.jpg",
+            description: "Join us in making lost and found easy. Explore FindItZone to browse, post, and recover belongings—all at your fingertips.."
         },
         {
-            title: "Hope for Healing: Together We Save Lives",
-            image: "https://i.ibb.co.com/K7fQqbh/images-Madecal.jpg",
-            description: "Every life matters. This campaign aims to provide critical medical assistance to those who need it most. From funding life-saving surgeries to ensuring access to essential medicines, your contribution can make the difference between despair and hope."
+            title: "Your Go-To Lost & Found Solution!",
+            image: "https://i.ibb.co.com/3NrBSTp/download-9.jpg",
+            description: "From misplaced treasures to unexpected finds, FindItZone bridges the gap. Start your search or share what you've discovered now!"
         },
         {
-            title: "LaunchPad: Empowering Tomorrow’s Entrepreneurs",
-            image: "https://i.ibb.co.com/G0D1WxL/images4.jpg",
-            description: "LaunchPad is a hub for visionaries and dreamers. With your support, we’ll empower small businesses to rise, innovate, and redefine industries for a brighter economic future."
+            title: "Lost Something? Find It Here!",
+            image: "https://i.ibb.co.com/nk8ymd2/images-5.jpg",
+            description: "Discover a reliable way to reunite with your lost valuables or report items you've found. Connect with your community through FindItZone today!"
         },
-        {
-            title: "NextGen Ventures: Fueling Innovation, One Idea at a Time",
-            image: "https://i.ibb.co.com/2KHfr7R/images3.jpg",
-            description: "NextGen Ventures supports bold entrepreneurs with innovative ideas. We’re on a journey to discover and nurture the next big thing in the business world."
-        },
+       
     ];
 
     useEffect(() => {

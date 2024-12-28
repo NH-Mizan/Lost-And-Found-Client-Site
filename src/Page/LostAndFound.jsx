@@ -1,33 +1,46 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import axios from 'axios';
+import React, {  useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-const LostAndFound = () => {
-    const items = useLoaderData();
-    const [postItem, setPostItem] = useState(items);
-    const [searchQuery, setSearchQuery] = useState(""); // Store search query
-    console.log(items);
+
+
+const LostAndFound = () => {    const [originalItems, setOriginalItems] = useState([]); 
+    const [postItem, setPostItem] = useState([]); 
+    const [searchQuery, setSearchQuery] = useState(""); 
+   
 
     useEffect(() => {
         document.title = "Lost and Found || Find It Zone";
+        
+        const fetchItems = async () => {
+            try {
+                const { data } = await axios.get(`${import.meta.env.VITE_apiURL}/items`);
+                setOriginalItems(data); // Save original items
+                setPostItem(data); // Display fetched items initially
+            } catch (error) {
+                console.error("Failed to fetch items:", error);
+            }
+        };
+        fetchItems();
     }, []);
 
     // Handle search input
     const handleSearch = (e) => {
-        const query = e.target.value.toLowerCase(); // Convert input to lowercase for case-insensitive search
+        const query = e.target.value.toLowerCase();
         setSearchQuery(query);
 
-        const filteredItems = items.filter(
+        const filteredItems = originalItems.filter(
             (item) =>
                 item.title.toLowerCase().includes(query) ||
-                item.location.toLowerCase().includes(query) 
+                item.location.toLowerCase().includes(query)
         );
 
-        setPostItem(filteredItems); 
+        setPostItem(filteredItems); // Update displayed items
     };
 
     return (
         <div className="min-h-screen bg-base-200">
-            <div className="w-11/12 mx-auto ">
+            <div className="w-11/12 mx-auto">
                 <div className="text-center py-12">
                     <h2 className="font-bold text-3xl mb-4">Latest Find & Lost Items</h2>
                     <p>
@@ -46,7 +59,7 @@ const LostAndFound = () => {
                             value={searchQuery}
                             onChange={handleSearch}
                         />
-                        <svg
+                          <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
                             fill="currentColor"
@@ -57,6 +70,7 @@ const LostAndFound = () => {
                                 clipRule="evenodd"
                             />
                         </svg>
+                        
                     </label>
                 </div>
 
@@ -94,6 +108,8 @@ const LostAndFound = () => {
                     ) : (
                         <div className="text-center col-span-full">
                             <h3 className="text-xl font-semibold">No items match your search query.</h3>
+                         
+                            
                         </div>
                     )}
                 </div>

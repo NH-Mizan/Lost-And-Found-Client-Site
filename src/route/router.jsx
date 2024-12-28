@@ -52,7 +52,7 @@ const router = createBrowserRouter([
             {
                 path: '/lost&found',
                 element: <LostAndFound />,
-                loader: () => fetch(`${import.meta.env.VITE_apiURL}/items`)
+                
             },
             {
                 path: '/addItems',

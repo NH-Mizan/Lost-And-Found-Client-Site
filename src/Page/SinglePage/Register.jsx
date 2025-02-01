@@ -24,6 +24,19 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
 
+        if (!/[A-Z]/.test(password)) {
+            setError("Password must contain at least one uppercase letter.");
+            return
+        }
+        if (!/[a-z]/.test(password)) {
+            setError("Password must contain at least one lowercase letter.");
+            return
+        }
+        if (password.length < 6) {
+            setError("Password must be at least 6 characters long.");
+            return
+        }
+
 
 
         createUserAuth(email, password)

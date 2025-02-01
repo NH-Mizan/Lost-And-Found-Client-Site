@@ -5,12 +5,14 @@ const Footer = () => {
     return (
         <div className=''>
             <footer className="footer footer-center footer text-white bg-neutral text-neutral rounded p-10">
-                <nav className="grid grid-flow-col gap-4">
+                {/* <nav className="grid grid-flow-col gap-4">
                     <Link className="link link-hover">Home</Link>
                     <Link className="link link-hover">Donation Campaigns</Link>
                     <Link className="link link-hover">How to Help</Link>
                     <Link className="link link-hover">Dashboard</Link>
-                </nav>
+                </nav> */}
+
+                
                 <nav>
                     <div className="grid grid-flow-col gap-4">
                         <a>

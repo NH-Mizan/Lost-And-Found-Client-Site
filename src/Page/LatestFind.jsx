@@ -71,17 +71,17 @@ const LatestFind = () => {
                                 <div className="flex justify-between items-center">
                                     <h2 className="card-title">{item.title}</h2>
                                     <div>
-                                        <h2 className="font-bold border-2 border-orange-500 px-2 rounded-3xl my-4 bg-lime-100">
+                                        <h2 className="font-bold border-2 border-green-500 px-2 rounded-3xl my-4 bg-lime-100">
                                             {item.postType}
                                         </h2>
                                     </div>
                                 </div>
                                 <div className="text-sm flex justify-between">
-                                    <span className="font-bold border-2 p-2 flex rounded-3xl my-4 bg-lime-100">
-                                        <h2 className="text-orange-500 mr-2">Deadline</h2>: {item.date}
+                                    <span className="border p-2 flex rounded-3xl my-4 bg-lime-100">
+                                        <h2 className="text-green-500 mr-2">Deadline</h2>: {item.date}
                                     </span>
-                                    <span className="font-bold border-2 p-2 flex rounded-3xl my-4 bg-lime-100">
-                                        <h2 className="text-orange-500 mr-2">Location</h2>: {item.location}
+                                    <span className="border-2 p-2 flex rounded-3xl my-4 bg-lime-100">
+                                        <h2 className="text-green-500 mr-2">Location</h2>: {item.location}
                                     </span>
                                 </div>
                                 <p>{item.description.substring(0, 50)}...</p>

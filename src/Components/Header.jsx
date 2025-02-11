@@ -39,7 +39,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className=" stiky top-0 bg-green-200">
+            <div className=" fixed w-full z-30 top-0 bg-green-200">
                 <div className="navbar w-11/12 mx-auto itrms-center flex ">
                     <div className="navbar-start">
 

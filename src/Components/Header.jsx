@@ -39,7 +39,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className=" stiky top-0">
+            <div className=" stiky top-0 bg-green-200">
                 <div className="navbar w-11/12 mx-auto itrms-center flex ">
                     <div className="navbar-start">
 
@@ -170,7 +170,7 @@ const Header = () => {
                         <div className="">
                             {
                                 user?
-                                 <button onClick={logOut} className='btn btn-outline ml-2'>LogOut</button>
+                                 <button onClick={logOut} className='btn btn-neutral btn-outline ml-2'>LogOut</button>
                                  :
                                  <Link to={'/logIn'} className='btn btn-outline ml-2'>LogIn</Link>
                             }

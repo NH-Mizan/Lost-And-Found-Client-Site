@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { h2 } from 'framer-motion/client';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -38,7 +39,7 @@ const LostAndFound = () => {
 
         setPostItem(filteredItems); // Update displayed items
     };
-
+    
     return (
         <div className="min-h-screen bg-base-200">
             <div className="w-11/12 mx-auto">

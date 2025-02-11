@@ -17,11 +17,7 @@ const AuthProvider = ({ children }) => {
     const handleGoogleSinInAuth = () => {
         setLoder(true)
 
-        signInWithPopup(auth, provider)
-            .then(res => {
-                setUser(res.user)
-
-            })
+       return signInWithPopup(auth, provider)
     }
 
     // Create user method=======================================

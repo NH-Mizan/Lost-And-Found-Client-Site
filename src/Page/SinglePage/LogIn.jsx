@@ -40,7 +40,7 @@ const LogIn = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
-              
+           
         })   .catch((erro) => {
             setError({...error, login: erro.code })
         });
@@ -61,6 +61,8 @@ const LogIn = () => {
                 showConfirmButton: false,
                 timer: 1500
               });
+              navigate('/')
+              
               
         })
 

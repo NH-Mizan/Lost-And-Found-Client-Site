@@ -84,7 +84,7 @@ const Register = () => {
                 const user = res.user;
                 setUser(user)
 
-                navigate("/")
+         
                 setLoder(false)
                 Swal.fire({
                     position: "top-end",
@@ -93,6 +93,7 @@ const Register = () => {
                     showConfirmButton: false,
                     timer: 1500
                   });
+                  navigate("/")
                   
             })
     }
